@@ -3,7 +3,7 @@ from datetime import time
 
 def test_dark_theme_by_time():
     current_time = time(hour=21)
-    if time(hour=22) < current_time < time(hour=6):
+    if time(hour=22) <= current_time < time(hour=6):
         is_dark_theme = True
     else:
         is_dark_theme = False
@@ -13,13 +13,12 @@ def test_dark_theme_by_time():
 def test_dark_theme_by_time_and_user_choice():
     current_time = time(hour=16)
     is_dark_theme = None
-    dark_theme_enabled_by_user = True
 
 
     if dark_theme_enabled_by_user == None:
         is_dark_theme = dark_theme_enabled_by_user
     if dark_theme_enabled_by_user:
-        if time(hour=22) < current_time < time(hour=6):
+        if time(hour=22) <= current_time < time(hour=6):
             assert is_dark_theme is True
             dark_theme_enabled_by_user = False
 
@@ -73,17 +72,17 @@ def test_read():
 
 
 def open_browser(browser_name):
-    actual_result = None
+    actual_result = print_name_args(open_browser, browser_name)
     assert actual_result == "Open Browser [Chrome]"
 
 
 def go_to_companyname_homepage(page_url):
-    actual_result = None
+    actual_result = print_name_args(open_browser, browser_name)
     assert actual_result == "Go To Companyname Homepage [https://companyname.com]"
 
 
-def find_registration_button(page_url, button_text):
-    actual_result = None
+def find_registration_button_on_login_page(page_url, button_text):
+    actual_result = print_name_args(open_browser, browser_name)
     assert actual_result == "Find Registration Button On Login Page [https://companyname.com/login, Register]"
 
 def print_name_args(func, *args):
